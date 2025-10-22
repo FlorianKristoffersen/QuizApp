@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>QuizApp</title>
+    <link rel="icon" href="/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     
     <!-- Bootstrap file-->
@@ -20,9 +20,25 @@
 </nav>
     
     <div class="container">
+
+
     <div class="card quiz-card">
-  <img src="img/pencil.jpg" class="card-img-top">
-  <div class="card-body">
+  <img src="img/pencil.jpg" id="header-image" class="card-img-top">
+
+  <div class="progress mb-3" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+  <div id="progress-bar" class="progress-bar bg-success" style="width: 0%">0%</div>
+</div>
+
+ <div class="card-body" id="endScreen" style="display: none;">
+    <div class="text-center">Quiz beendet!</div>
+    
+    <div class="text-center">
+    Du hast <b id="amount-of-right-questions">XXX</b> Fragen von <b id="amount-of-questions">XXX</b> richtig beantwortet.
+    </div>
+ </div>
+
+
+  <div class="card-body" id="questionBody">
     <h5 class="card-title" id="questiontext">Frage</h5>
 
     <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
@@ -50,9 +66,9 @@
 </div>
    <div class="question-footer">
     <span>
-    <b>1</b> von <b id="all-questions">10</b> Fragen
+    <b id="question-number">1</b> von <b id="all-questions">10</b> Fragen
     </span>
-    <button class="btn btn-secondary" id="next-button" disabled>Nächste Frage</button>
+    <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Nächste Frage</button>
    </div>
   </div>
 </div>
