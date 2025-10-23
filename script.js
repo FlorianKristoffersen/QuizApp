@@ -126,11 +126,14 @@ function showQuestion() {
         headerImage.replaceWith(container);
 
         // Neustart-Button hinzufügen
+        if (!document.getElementById('restart-button')) {
         const restartButton = document.createElement('button');
+        restartButton.id = 'restart-button';
         restartButton.textContent = '🔄 Quiz neu starten';
         restartButton.classList.add('btn', 'btn-primary', 'mt-4', 'd-block', 'mx-auto');
         restartButton.onclick = restartQuiz;
         document.getElementById('endScreen').appendChild(restartButton);
+}
 
         // Fortschrittsbalken auf 100 % setzen
         updateProgressBar(questions.length, questions.length);
