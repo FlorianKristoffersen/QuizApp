@@ -68,6 +68,7 @@ function renderQuestion() {
 function showEndScreen() {
   toggleScreen("endScreen", true);
   toggleScreen("questionBody", false);
+  document.querySelector('.quiz-card').classList.add('ended');
 
   setEndStats();
   replaceHeaderWithTrophies();
@@ -161,6 +162,7 @@ function restartQuiz() {
   toggleScreen("questionBody", true);
   restoreHeader();
   showQuestion();
+  document.querySelector('.quiz-card').classList.remove('ended');
 }
 
 function restoreHeader() {

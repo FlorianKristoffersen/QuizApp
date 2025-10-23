@@ -1,0 +1,172 @@
+/* ===========================
+   🌿 Grundlayout (Desktop)
+   =========================== */
+
+body {
+  background-color: #fefaef !important;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefaef !important;
+}
+
+.quiz-card {
+  width: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Fragen mittig */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Frage-Footer */
+.question-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+}
+
+/* Hover-Effekt nur, wenn Antwort aktiv ist */
+.quiz-answer-card:hover:not(.disabled) {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Richtige / falsche Antworten */
+.bg-success, .bg-danger {
+  color: white;
+}
+
+/* Zentrierung Endscreen */
+.text-center {
+  text-align: center;
+}
+
+#endScreen .text-center:first-child {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   🎨 Farben & Stil
+   =========================== */
+
+:root {
+  --quiz-accent: #1f485e;
+}
+
+/* Fortschrittsbalken */
+.progress-bar {
+  background-color: var(--quiz-accent) !important;
+  color: white !important;
+  font-weight: bold;
+  transition: width 0.4s ease;
+  border-radius: 4px;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  background-color: var(--quiz-accent) !important;
+  border-color: var(--quiz-accent) !important;
+  color: white !important;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: #153646 !important;
+  transform: scale(1.03);
+}
+
+/* ===========================
+   🏆 Trophy Layout
+   =========================== */
+
+.trophy-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  gap: 0; /* keine Lücke dazwischen */
+}
+
+.trophy {
+  width: 200px;
+  height: auto;
+}
+
+/* Zweite Trophy gespiegelt */
+.mirrored {
+  transform: scaleX(-1);
+  margin-left: -2px; /* Linie vermeiden */
+}
+
+/* ===========================
+   📱 Responsive Design
+   =========================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .quiz-card {
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .trophy {
+    width: 180px;
+  }
+
+  .progress {
+    margin: 0 10px;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 600px) {
+  .quiz-card {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .card-body {
+    padding: 1.2rem;
+  }
+
+  .trophy {
+    width: 140px;
+  }
+
+  .trophy-container {
+    padding: 20px 0;
+  }
+
+  .progress {
+    margin: 0 5px;
+  }
+
+  nav.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+}
+
+.quiz-card.ended .progress {
+  margin: 0 20px;
+}
